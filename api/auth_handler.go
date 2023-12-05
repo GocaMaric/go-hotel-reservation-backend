@@ -3,6 +3,7 @@ package api
 import (
 	"errors"
 	"fmt"
+	"github.com/gofiber/fiber/v2"
 	"go-hotel-reservation-backend/db"
 	"go-hotel-reservation-backend/types"
 	"go.mongodb.org/mongo-driver/mongo"
