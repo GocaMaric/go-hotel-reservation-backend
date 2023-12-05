@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/go-hotel-reservation-backend/types"
+	"/go-hotel-reservation-backend/types"
 	"go-hotel-reservation-backend/db"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
