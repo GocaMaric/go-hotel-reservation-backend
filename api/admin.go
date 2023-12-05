@@ -1,6 +1,7 @@
 package api
 
 import (
+	"github.com/gofiber/fiber/v2"
 	"go-hotel-reservation-backend/types"
 )
 
