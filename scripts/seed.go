@@ -3,9 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/joho/godotenv"
 	"go-hotel-reservation-backend/api"
 	"go-hotel-reservation-backend/db"
 	"go-hotel-reservation-backend/db/fixtures"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"math/rand"
 	"os"
