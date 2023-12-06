@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
+	"github.com/gofiber/fiber/v2"
 	"log"
 	"os"
 
-	"github.com/go-hotel-reservation-backend/api"
-	"github.com/go-hotel-reservation-backend/db"
 	"github.com/joho/godotenv"
+	"go-hotel-reservation-backend/api"
+	"go-hotel-reservation-backend/db"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
