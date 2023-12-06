@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v5"
 	"go-hotel-reservation-backend/db"
 	"go-hotel-reservation-backend/types"
 	"go.mongodb.org/mongo-driver/mongo"
