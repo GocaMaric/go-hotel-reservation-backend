@@ -7,16 +7,19 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+// HotelHandler handles HTTP requests related to hotels.
 type HotelHandler struct {
 	store *db.Store
 }
 
+// NewHotelHandler creates a new instance of HotelHandler.
 func NewHotelHandler(store *db.Store) *HotelHandler {
 	return &HotelHandler{
 		store: store,
 	}
 }
 
+// HandleGetRooms handles the retrieval of rooms for a specific hotel.
 func (h *HotelHandler) HandleGetRooms(c *fiber.Ctx) error {
 	id := c.Params("id")
 	oid, err := primitive.ObjectIDFromHex(id)
@@ -32,6 +35,7 @@ func (h *HotelHandler) HandleGetRooms(c *fiber.Ctx) error {
 	return c.JSON(rooms)
 }
 
+// HandleGetHotel handles the retrieval of a specific hotel.
 func (h *HotelHandler) HandleGetHotel(c *fiber.Ctx) error {
 	id := c.Params("id")
 	hotel, err := h.store.Hotel.GetHotelByID(c.Context(), id)
@@ -41,17 +45,20 @@ func (h *HotelHandler) HandleGetHotel(c *fiber.Ctx) error {
 	return c.JSON(hotel)
 }
 
+// ResourceResp represents the response structure for resource endpoints.
 type ResourceResp struct {
-	Results int `json:"results"`
-	Data    any `json:"data"`
-	Page    int `json:"page"`
+	Results int         `json:"results"`
+	Data    interface{} `json:"data"`
+	Page    int         `json:"page"`
 }
 
+// HotelQueryParams represents the query parameters for hotel endpoints.
 type HotelQueryParams struct {
 	db.Pagination
-	Rating int
+	Rating int `json:"rating"`
 }
 
+// HandleGetHotels handles the retrieval of hotels based on query parameters.
 func (h *HotelHandler) HandleGetHotels(c *fiber.Ctx) error {
 	var params HotelQueryParams
 	if err := c.QueryParser(&params); err != nil {
