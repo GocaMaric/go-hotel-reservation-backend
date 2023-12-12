@@ -13,6 +13,7 @@ import (
 	"go-hotel-reservation-backend/db/fixtures"
 )
 
+// TestAuthenticateWithWrongPassword tests authentication with an incorrect password.
 func TestAuthenticateWithWrongPassword(t *testing.T) {
 	tdb := setup(t)
 	defer tdb.teardown(t)
@@ -48,6 +49,7 @@ func TestAuthenticateWithWrongPassword(t *testing.T) {
 	}
 }
 
+// TestAuthenticateSuccess tests successful authentication.
 func TestAuthenticateSuccess(t *testing.T) {
 	tdb := setup(t)
 	defer tdb.teardown(t)
